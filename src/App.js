@@ -174,11 +174,14 @@ var flagDictionary = {
 export default function App() {
   var flagarray = Object.keys(flagDictionary);
   const [country, setcountry] = useState("Country will appear here..");
-
+ 
+    
   function ClickHandler(item) {
     var country = flagDictionary[item];
     setcountry(country);
+    
   }
+  
 
   function changeHandler(event) {
     var flag = event.target.value;
@@ -212,8 +215,8 @@ export default function App() {
         </p>
         <div className="list-container" style={{ maxWidth: "1200px" }}>
           <ul>
-            {flagarray.map((item, index) => (
-              <li
+            {flagarray.map((item) => (
+              <li key={item}
                 style={{
                   display: "inline",
                   padding: "1rem",
